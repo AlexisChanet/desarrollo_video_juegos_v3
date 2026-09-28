@@ -830,8 +830,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Opciones
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 24d1fe81094f19647891a50ca0942d94, type: 2}
+  m_sharedMaterial: {fileID: 8823161461314782818, guid: 24d1fe81094f19647891a50ca0942d94, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1134,8 +1134,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Salir
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 24d1fe81094f19647891a50ca0942d94, type: 2}
+  m_sharedMaterial: {fileID: 8823161461314782818, guid: 24d1fe81094f19647891a50ca0942d94, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1485,8 +1485,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Jugar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 24d1fe81094f19647891a50ca0942d94, type: 2}
+  m_sharedMaterial: {fileID: 8823161461314782818, guid: 24d1fe81094f19647891a50ca0942d94, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1757,10 +1757,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NOMBRE DEL JUEGO
+  m_text: Zombie Shooter
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 24d1fe81094f19647891a50ca0942d94, type: 2}
+  m_sharedMaterial: {fileID: 8823161461314782818, guid: 24d1fe81094f19647891a50ca0942d94, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1929,6 +1929,38 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1299088476}
+    - target: {fileID: 400266528262007284, guid: 9240dc6c63a5051429448293403e7a02, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 24d1fe81094f19647891a50ca0942d94, type: 2}
+    - target: {fileID: 400266528262007284, guid: 9240dc6c63a5051429448293403e7a02, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 594849787350431639, guid: 9240dc6c63a5051429448293403e7a02, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 24d1fe81094f19647891a50ca0942d94, type: 2}
+    - target: {fileID: 594849787350431639, guid: 9240dc6c63a5051429448293403e7a02, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998421315431638736, guid: 9240dc6c63a5051429448293403e7a02, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 24d1fe81094f19647891a50ca0942d94, type: 2}
+    - target: {fileID: 2998421315431638736, guid: 9240dc6c63a5051429448293403e7a02, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209560181532725369, guid: 9240dc6c63a5051429448293403e7a02, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 24d1fe81094f19647891a50ca0942d94, type: 2}
+    - target: {fileID: 5209560181532725369, guid: 9240dc6c63a5051429448293403e7a02, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6069514552555329601, guid: 9240dc6c63a5051429448293403e7a02, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
