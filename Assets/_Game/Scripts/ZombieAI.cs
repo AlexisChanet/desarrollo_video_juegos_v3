@@ -1,67 +1,84 @@
 using UnityEngine;
+using UnityEngine.AI; // Necesario para NavMesh
 
 public class ZombieAI : MonoBehaviour
 {
     [Header("Movimiento")]
     public float speed = 2.5f;
-    public float detectionRange = 10f;
+    public float detectionRange = 12f;
+    public float stoppingDistance = 1.1f;
+
+    [Header("Rotación y Orientación")]
+    [Tooltip("0 = mira a la derecha, -90 = mira hacia arriba")]
+    public float rotationOffset = 0f;
 
     [Header("Animación Procedural")]
     public float wobbleSpeed = 12f;
     public float wobbleAngle = 10f;
 
     private Transform player;
-    private Rigidbody2D rb;
+    private NavMeshAgent agent;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        agent = GetComponent<NavMeshAgent>();
+
+        // Configuración esencial para juegos 2D:
+        agent.updateRotation = false; // Evita que Unity intente rotar el zombi en 3D
+        agent.updateUpAxis = false;   // Mantiene al zombi en el plano 2D (XY)
+
+        agent.speed = speed;
+        agent.stoppingDistance = stoppingDistance;
+
         BuscarJugador();
     }
 
     void Update()
     {
+        // Si el jugador no existe o está desactivado
         if (player == null || !player.gameObject.activeInHierarchy)
         {
             BuscarJugador();
-        }
-    }
-
-    void FixedUpdate()
-    {
-        // Si el jugador no existe o está desactivado (muerto), detenemos al zombi por completo
-        if (player == null || !player.gameObject.activeInHierarchy)
-        {
-            if (rb != null)
-            {
-                rb.linearVelocity = Vector2.zero;
-                rb.angularVelocity = 0f;
-                rb.Sleep(); // Pone el cuerpo rígido a dormir para que Unity no intente aplicarle físicas ni temblores
-            }
+            if (agent.isOnNavMesh) agent.isStopped = true;
             return;
         }
 
-        Vector2 direction = (player.position - transform.position);
-        float distance = direction.magnitude;
+        float distance = Vector2.Distance(transform.position, player.position);
 
+        // Si está dentro del rango de detección
         if (distance <= detectionRange)
         {
-            direction.Normalize();
+            if (agent.isOnNavMesh)
+            {
+                agent.isStopped = false;
+                agent.SetDestination(player.position); // ¡NavMesh calcula el camino solo!
+            }
 
-            // Movimiento hacia el jugador
-            rb.linearVelocity = direction * speed;
-
-            // Ángulo base hacia el jugador
-            float baseAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            // Oscilación senoidal para simular el paso al caminar
-            float wobble = Mathf.Sin(Time.time * wobbleSpeed) * wobbleAngle;
-            rb.rotation = baseAngle + wobble;
+            ControlarRotacionYAnimacion();
         }
         else
         {
-            rb.linearVelocity = Vector2.zero;
-            rb.angularVelocity = 0f;
+            if (agent.isOnNavMesh) agent.isStopped = true;
+        }
+    }
+
+    private void ControlarRotacionYAnimacion()
+    {
+        // Si el zombi se está moviendo, miramos hacia la dirección a la que camina
+        Vector2 direccionMovimiento = agent.velocity;
+
+        if (direccionMovimiento.sqrMagnitude > 0.05f)
+        {
+            float baseAngle = Mathf.Atan2(direccionMovimiento.y, direccionMovimiento.x) * Mathf.Rad2Deg + rotationOffset;
+            float wobble = Mathf.Sin(Time.time * wobbleSpeed) * wobbleAngle;
+            transform.rotation = Quaternion.Euler(0, 0, baseAngle + wobble);
+        }
+        else
+        {
+            // Si está detenido al lado del jugador, mira directo hacia él sin tambaleo
+            Vector2 direccionJugador = (player.position - transform.position).normalized;
+            float baseAngle = Mathf.Atan2(direccionJugador.y, direccionJugador.x) * Mathf.Rad2Deg + rotationOffset;
+            transform.rotation = Quaternion.Euler(0, 0, baseAngle);
         }
     }
 
@@ -76,5 +93,11 @@ public class ZombieAI : MonoBehaviour
         {
             player = null;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }

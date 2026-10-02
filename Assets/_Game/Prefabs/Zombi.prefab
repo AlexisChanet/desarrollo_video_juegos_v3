@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7047566090376847220}
   - component: {fileID: 1272665057310611672}
   - component: {fileID: 9056439134827164694}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3673903530700812422}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,6 +126,8 @@ GameObject:
   - component: {fileID: 3094604905152599387}
   - component: {fileID: 5371719516848707301}
   - component: {fileID: 3456021373682411469}
+  - component: {fileID: 3400948073395902282}
+  - component: {fileID: 4332080850850700597}
   m_Layer: 0
   m_Name: Zombi
   m_TagString: Enemy
@@ -217,7 +219,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3286874446781232417}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -307,6 +309,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAI
   speed: 3.2
   detectionRange: 500
+  stoppingDistance: 1.1
+  rotationOffset: 0
   wobbleSpeed: 22
   wobbleAngle: 14
 --- !u!95 &3456021373682411469
@@ -331,6 +335,40 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &3400948073395902282
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286874446781232417}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.47
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 0.86
+  m_BaseOffset: 0.43
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &4332080850850700597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286874446781232417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Extensions.AgentOverride2d
 --- !u!1 &4315212478503654959
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6773772550629657941}
   - component: {fileID: 4893552022991941535}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +469,7 @@ GameObject:
   - component: {fileID: 989606361124680975}
   - component: {fileID: 2763849361126079118}
   - component: {fileID: 7330140394203105199}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +546,7 @@ GameObject:
   - component: {fileID: 3102549273918044117}
   - component: {fileID: 946345200573870747}
   - component: {fileID: 8290635022774483019}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

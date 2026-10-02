@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6467511664872502058}
   - component: {fileID: 769362584360810490}
   - component: {fileID: 7521172917603442222}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3450898459647479265}
   - component: {fileID: 7527884512185380280}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 2733887851912336687}
   - component: {fileID: 106635720046761302}
   - component: {fileID: 8490960895958140042}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 2817321946341469670}
   - component: {fileID: 4266140551910506081}
   - component: {fileID: 8101866743074273366}
+  - component: {fileID: 5736165950034495421}
   m_Layer: 0
   m_Name: Zombie 2
   m_TagString: Enemy
@@ -386,7 +387,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7036702515939492800}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -476,6 +477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAI
   speed: 2.5
   detectionRange: 500
+  stoppingDistance: 1.1
+  rotationOffset: 0
   wobbleSpeed: 12
   wobbleAngle: 10
 --- !u!95 &8101866743074273366
@@ -500,6 +503,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &5736165950034495421
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7036702515939492800}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.47
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 0.86
+  m_BaseOffset: 0.43
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7799808524502833277
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,7 +536,7 @@ GameObject:
   - component: {fileID: 4004871039477853332}
   - component: {fileID: 4617924359968267314}
   - component: {fileID: 418005178583098975}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +609,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8618871933498694966}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
