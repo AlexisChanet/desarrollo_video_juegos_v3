@@ -19,20 +19,17 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        // 1. Ignorar si choca con el jugador
+        // Ignorar si choca con el propio jugador
         if (hitInfo.CompareTag("Player")) return;
 
-        // 2. NUEVO: Ignorar si choca con el botiquín (lo atraviesa)
-        if (hitInfo.GetComponent<HealthPickup>() != null) return;
-
-        // 3. Comprobar si golpeó a un enemigo
+        // Comprobar si golpeó a un enemigo con vida
         EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
         }
 
-        // 4. Destruir la bala al chocar (contra enemigos o paredes)
+        // Destruir la bala al chocar
         Destroy(gameObject);
     }
 }

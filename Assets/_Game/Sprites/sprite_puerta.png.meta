@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ad8dfe0564cac3f46a555be4ec76abbd
+guid: 8df4ae64f81ea3749aaa6914e61a4baa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7856726966592641639
-    second: vecteezy_ai-generated-first-aid-kit-hand-drawn-cartoon-style_42051843_0
+      213: 3286726579308415800
+    second: sprite_puerta 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -98,30 +98,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vecteezy_ai-generated-first-aid-kit-hand-drawn-cartoon-style_42051843_0
+      name: sprite_puerta 1_0
       rect:
         serializedVersion: 2
-        x: 406
-        y: 464
-        width: 1236
-        height: 1132
+        x: 0
+        y: 194
+        width: 512
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76a9cf4ac83b80d60800000000000000
-      internalID: 7856726966592641639
+      spriteID: 83b4389f86ccc9d20800000000000000
+      internalID: 3286726579308415800
       vertices: []
       indices: 
       edges: []
@@ -150,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      vecteezy_ai-generated-first-aid-kit-hand-drawn-cartoon-style_42051843_0: 7856726966592641639
+      sprite_puerta 1_0: 3286726579308415800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
