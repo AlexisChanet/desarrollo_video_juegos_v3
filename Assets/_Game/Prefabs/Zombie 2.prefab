@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6467511664872502058}
   - component: {fileID: 769362584360810490}
   - component: {fileID: 7521172917603442222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HealthCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3450898459647479265}
   - component: {fileID: 7527884512185380280}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 2733887851912336687}
   - component: {fileID: 106635720046761302}
   - component: {fileID: 8490960895958140042}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,8 +296,7 @@ GameObject:
   - component: {fileID: 4266140551910506081}
   - component: {fileID: 8101866743074273366}
   - component: {fileID: 5736165950034495421}
-  - component: {fileID: 6666202527150305911}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Zombie 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -463,10 +462,7 @@ MonoBehaviour:
   mediumHealthColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   lowHealthColor: {r: 1, g: 0, b: 0, a: 1}
   bloodSplatPrefab: {fileID: 6072985042839367574, guid: fd286cba6bda9db4c9310ae33decb432, type: 3}
-  bloodParticlesPrefab: {fileID: 2723621469017374021, guid: f1562c2529aabde409ed9730dd45e275, type: 3}
-  medkitPrefab: {fileID: 8663379817188884973, guid: 973a497999a7d8846a91baa62039a8e4, type: 3}
-  medkitDropChance: 18.1
-  deathSound: {fileID: 8300000, guid: b7edb4c144a3e8341b3d1b2684a69827, type: 3}
+  bloodParticlesPrefab: {fileID: 1978994237726065905, guid: e196ba973d13eae47a60d3d997b6f211, type: 3}
 --- !u!114 &4266140551910506081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,6 +481,13 @@ MonoBehaviour:
   rotationOffset: 0
   wobbleSpeed: 12
   wobbleAngle: 10
+  obstacleCheckDistance: 1.2
+  zombieBlockerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  zombieLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!95 &8101866743074273366
 Animator:
   serializedVersion: 7
@@ -529,103 +532,6 @@ NavMeshAgent:
   m_BaseOffset: 0.43
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!82 &6666202527150305911
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7036702515939492800}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 194
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &7799808524502833277
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +543,7 @@ GameObject:
   - component: {fileID: 4004871039477853332}
   - component: {fileID: 4617924359968267314}
   - component: {fileID: 418005178583098975}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8618871933498694966}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

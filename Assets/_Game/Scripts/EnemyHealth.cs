@@ -20,16 +20,8 @@ public class EnemyHealth : MonoBehaviour
     public Color lowHealthColor = Color.red;
 
     [Header("Efectos de Muerte (Gore SAS)")]
-    public GameObject bloodSplatPrefab;      
-    public GameObject bloodParticlesPrefab;  
-
-    [Header("Botín (Loot)")]
-    public GameObject medkitPrefab; 
-    [Range(0f, 100f)] 
-    public float medkitDropChance = 20f; 
-
-    [Header("Efectos de Sonido (SFX)")]
-    public AudioClip deathSound; // Sonido de muerte del zombi
+    public GameObject bloodSplatPrefab;      // Charco de sangre para el suelo
+    public GameObject bloodParticlesPrefab;  // Explosión de partículas (BloodExplosion)
 
     private Animator anim;
     private Rigidbody2D rb;
@@ -93,48 +85,38 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
 
-        if (healthSlider != null) healthSlider.gameObject.SetActive(false);
+        // 1. Ocultar la barra de vida de inmediato
+        if (healthSlider != null)
+        {
+            healthSlider.gameObject.SetActive(false);
+        }
 
+        // 2. Spawnear charco de sangre en el suelo con rotación aleatoria (360°)
         if (bloodSplatPrefab != null)
         {
             Quaternion randomRot = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
             Instantiate(bloodSplatPrefab, transform.position, randomRot);
         }
 
-        if (bloodParticlesPrefab != null) Instantiate(bloodParticlesPrefab, transform.position, Quaternion.identity);
-
-        // AUDIO DE MUERTE FORZADO Y AMPLIADO
-        if (deathSound != null)
+        // 3. Spawnear explosión de partículas de sangre
+        if (bloodParticlesPrefab != null)
         {
-            GameObject tempAudioObj = new GameObject("TempAudio_ZombieDeath");
-            tempAudioObj.transform.position = transform.position;
-            AudioSource aSource = tempAudioObj.AddComponent<AudioSource>();
-            aSource.clip = deathSound;
-            aSource.spatialBlend = 0f; // 2D para que se escuche fuerte
-            aSource.volume = 2.5f;     // Forzamos volumen alto
-            aSource.Play();
-            Destroy(tempAudioObj, 1f); 
+            Instantiate(bloodParticlesPrefab, transform.position, Quaternion.identity);
         }
 
+        // 4. Apagar IA, colisiones y físicas
         if (ai != null) ai.enabled = false;
         if (col != null) col.enabled = false;
         if (rb != null) rb.simulated = false;
 
+        // 5. Ocultar el sprite del cuerpo de inmediato para simular el estallido
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr != null) sr.enabled = false;
+
+        // Desactivar Animator para cortar la animación de muerte defectuosa
         if (anim != null) anim.enabled = false;
 
-        if (medkitPrefab != null)
-        {
-            float randomRoll = Random.Range(0f, 100f); 
-            if (randomRoll <= medkitDropChance) 
-            {
-                Instantiate(medkitPrefab, transform.position, Quaternion.identity);
-            }
-        }
-
-        if (GameManager.Instance != null) GameManager.Instance.AddScore(10); 
-
+        // 6. Eliminar el objeto de la escena tras procesar los efectos
         Destroy(gameObject, 0.5f);
     }
 }
